@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Signal Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="https://api.dicebear.com/7.x/icons/svg?seed=tradepro" alt="Logo">
+        <h1 id="logo-text">Luxe Trade</h1>
+      </div>
+      <div class="settings">
+        <div class="input-group">
+          <label id="currency-label">Инструмент</label>
+          <select id="currency-pair">
+            <option>EUR/USD</option>
+            <option>BTC/USD</option>
+            <option>XAU/USD</option>
+            <option>ETH/USD</option>
+            <option>USD/RUB</option>
+            <option>USO/USD</option>
+            <option>USD/BRL</option>
+            <option>AUD/CAD</option>
+            <option>EUR/JPY</option>
+            <option>EUR/GPB</option>
+            <option>US100</option>
+            <option>PEN/USD</option>
+            <option>GBR/USD</option>
+            <option>USD/CHF</option>
+            <option>USD/MXN</option>
+            <option>LITECOIN</option>
+            <option>UST/JPY</option>
+            <option>GBR/JPY</option>
+            <option>CARDANO</option>
+            <option>AUD/USD</option>
+            <option>NZD/USD</option>
+            <option>APPLE</option>
+            <option>AIG</option>
+            <option>AMAZON</option>
+            <option>Google</option>
+            <option>Tesla</option>
+            <option>AUD/CHF</option>
+            <option>SOL/USG</option>
+            <option>Coca-Cola</option>
+            <option>USD/ZAR</option>
+            <option>DOGECOIN</option>
+            <option>NIKE</option>
+            <option>EOS</option>
+            <option>Meta</option>
+            <option>Ripple</option>
+            <option>Baidu</option>
+            <option>Tron/USD</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label id="timeframe-label">Время</label>
+          <select id="timeframe">
+            <option>30 секунд</option>
+            <option>1 минута</option>
+            <option>3 минут</option>
+            <option>5 минут</option>
+            <option>10 минут</option>
+          </select>
+        </div>
+        <button id="generate-btn">Получить сигнал</button>
+      </div>
+      <div class="language-selector">
+        <label for="language">Язык</label>
+        <select id="language" onchange="changeLanguage()">
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+          <option value="uz">O'zbek</option>
+        </select>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="signal-block">
+        <div class="signal-header">
+          <h2 id="signal-title">Сигнал</h2>
+          <span id="signal-time"></span>
+        </div>
+        <div id="signal-result" class="signal-result">
+          <div class="signal-placeholder">
+            Нажмите "Получить сигнал"
+          </div>
+        </div>
+      </div>
+      <div class="chart-block">
+        <div class="chart-header">
+          <h2 id="chart-title">Проанализированный график на валютную пару</h2>
+        </div>
+        <div id="chart" class="chart"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
