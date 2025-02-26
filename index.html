@@ -1,107 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Signal Pro</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Signal Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <div class="logo">
-        <img src="https://api.dicebear.com/7.x/icons/svg?seed=tradepro" alt="Logo">
-        <h1 id="logo-text">Luxe Trade</h1>
-      </div>
-      <div class="settings">
-        <div class="input-group">
-          <label id="currency-label">Инструмент</label>
-          <select id="currency-pair">
-            <option>EUR/USD</option>
-            <option>BTC/USD</option>
-            <option>XAU/USD</option>
-            <option>ETH/USD</option>
-            <option>USD/RUB</option>
-            <option>USO/USD</option>
-            <option>USD/BRL</option>
-            <option>AUD/CAD</option>
-            <option>EUR/JPY</option>
-            <option>EUR/GPB</option>
-            <option>US100</option>
-            <option>PEN/USD</option>
-            <option>GBR/USD</option>
-            <option>USD/CHF</option>
-            <option>USD/MXN</option>
-            <option>LITECOIN</option>
-            <option>UST/JPY</option>
-            <option>GBR/JPY</option>
-            <option>CARDANO</option>
-            <option>AUD/USD</option>
-            <option>NZD/USD</option>
-            <option>APPLE</option>
-            <option>AIG</option>
-            <option>AMAZON</option>
-            <option>Google</option>
-            <option>Tesla</option>
-            <option>AUD/CHF</option>
-            <option>SOL/USG</option>
-            <option>Coca-Cola</option>
-            <option>USD/ZAR</option>
-            <option>DOGECOIN</option>
-            <option>NIKE</option>
-            <option>EOS</option>
-            <option>Meta</option>
-            <option>Ripple</option>
-            <option>Baidu</option>
-            <option>Tron/USD</option>
-          </select>
-        </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
 
-        <div class="input-group">
-          <label id="timeframe-label">Время</label>
-          <select id="timeframe">
-            <option>30 секунд</option>
-            <option>1 минута</option>
-            <option>3 минут</option>
-            <option>5 минут</option>
-            <option>10 минут</option>
-          </select>
+                <h1 id="logo-text">LuxeTrade | Бот Аналитик</h1>
+            </div>
+            <div class="theme-switcher">
+                <button class="theme-btn" data-theme="light">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <button class="theme-btn" data-theme="dark">
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <button class="theme-btn" data-theme="crypto">
+                    <svg class="crypto-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </button>
+            </div>
+            <div class="settings">
+                <div class="input-group">
+                    <label id="currency-label">Инструмент</label>
+                    <div class="custom-select">
+                        <div class="select-selected" data-select="currency-pair">EUR/USD</div>
+                        <div class="select-items select-hide" id="currency-pair-items">
+                            <div class="select-item" data-value="EUR/USD">EUR/USD</div>
+                            <div class="select-item" data-value="GBP/USD">GBP/USD</div>
+                            <div class="select-item" data-value="USD/JPY">USD/JPY</div>
+                            <div class="select-item" data-value="USD/CHF">USD/CHF</div>
+                            <div class="select-item" data-value="USD/CAD">USD/CAD</div>
+                            <div class="select-item" data-value="AUD/USD">AUD/USD</div>
+                            <div class="select-item" data-value="NZD/USD">NZD/USD</div>
+                        </div>
+                        <select id="currency-pair" class="hidden-select">
+                            <option>EUR/USD</option>
+                            <option>GBP/USD</option>
+                            <option>USD/JPY</option>
+                            <option>USD/CHF</option>
+                            <option>USD/CAD</option>
+                            <option>AUD/USD</option>
+                            <option>NZD/USD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label id="timeframe-label">Время</label>
+                    <div class="custom-select">
+                        <div class="select-selected" data-select="timeframe">1 минута</div>
+                        <div class="select-items select-hide" id="timeframe-items">
+                            <div class="select-item" data-value="1 минута">1 минута</div>
+                            <div class="select-item" data-value="2 минуты">2 минуты</div>
+                            <div class="select-item" data-value="3 минуты">3 минуты</div>
+                            <div class="select-item" data-value="4 минуты">4 минуты</div>
+                            <div class="select-item" data-value="5 минут">5 минут</div>
+                        </div>
+                        <select id="timeframe" class="hidden-select">
+                            <option>1 минута</option>
+                            <option>2 минуты</option>
+                            <option>3 минуты</option>
+                            <option>4 минуты</option>
+                            <option>5 минут</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="generate-btn">Получить сигнал</button>
+            </div>
+            <div class="language-selector">
+                <label for="language">Язык</label>
+                <div class="custom-select">
+                    <div class="select-selected" data-select="language">
+                        <img src="https://flagcdn.com/w20/ru.png" alt="RU" class="flag-icon">
+                        Русский
+                    </div>
+                    <div class="select-items select-hide" id="language-items">
+                        <div class="select-item" data-value="ru">
+                            <img src="https://flagcdn.com/w20/ru.png" alt="RU" class="flag-icon">
+                            Русский
+                        </div>
+                        <div class="select-item" data-value="en">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="flag-icon">
+                            English
+                        </div>
+                        <div class="select-item" data-value="uz">
+                            <img src="https://flagcdn.com/w20/uz.png" alt="UZ" class="flag-icon">
+                            O'zbek
+                        </div>
+                    </div>
+                    <select id="language" class="hidden-select">
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                        <option value="uz">O'zbek</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <button id="generate-btn">Получить сигнал</button>
-      </div>
-      <div class="language-selector">
-        <label for="language">Язык</label>
-        <select id="language" onchange="changeLanguage()">
-          <option value="ru">Русский</option>
-          <option value="en">English</option>
-          <option value="uz">O'zbek</option>
-        </select>
-      </div>
+        <div class="main-content">
+            <div class="signal-block">
+                <div class="signal-header">
+                    <h2 id="signal-title">Сигнал</h2>
+                    <span id="signal-time"></span>
+                </div>
+                <div id="signal-result" class="signal-result">
+                    <div class="signal-placeholder">
+                        Нажмите "Получить сигнал"
+                    </div>
+                </div>
+            </div>
+            <div class="chart-block">
+                <div class="chart-header">
+                    <h2 id="chart-title">Проанализированный график на валютную пару</h2>
+                </div>
+                <div id="chart" class="chart"></div>
+            </div>
+        </div>
     </div>
-    <div class="main-content">
-      <div class="signal-block">
-        <div class="signal-header">
-          <h2 id="signal-title">Сигнал</h2>
-          <span id="signal-time"></span>
-        </div>
-        <div id="signal-result" class="signal-result">
-          <div class="signal-placeholder">
-            Нажмите "Получить сигнал"
-          </div>
-        </div>
-      </div>
-      <div class="chart-block">
-        <div class="chart-header">
-          <h2 id="chart-title">Проанализированный график на валютную пару</h2>
-        </div>
-        <div id="chart" class="chart"></div>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
