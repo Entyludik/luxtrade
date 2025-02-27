@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
+    /* Светлая тема */
     --bg-white: #ffffff;
     --bg-light: #f8f9fa;
     --text-primary: #2c3e50;
@@ -10,7 +11,7 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-
+/* Темная тема */
 [data-theme="dark"] {
     --bg-white: #1a202c;
     --bg-light: #2d3748;
@@ -21,7 +22,7 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
-
+/* Крипто тема */
 [data-theme="crypto"] {
     --bg-white: #1a1b1e;
     --bg-light: #2b2d31;
@@ -94,6 +95,7 @@ body {
     font-weight: 500;
 }
 
+/* Удаляем старый стиль select */
 select {
     width: 100%;
     padding: 12px;
@@ -114,19 +116,19 @@ select {
     padding-right: 40px;
 }
 
-
+/* Убираем стандартную стрелку в IE */
 select::-ms-expand {
     display: none;
 }
 
-
+/* Стили при наведении и фокусе */
 select:hover, select:focus {
     border-color: var(--text-primary);
     box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
     outline: none;
 }
 
-
+/* Стили для опций в выпадающем списке */
 select option {
     padding: 12px;
     background-color: var(--bg-white);
@@ -134,9 +136,10 @@ select option {
     font-size: 14px;
 }
 
+/* Удаляем стандартные стили для мобильных устройств */
 @media (hover: none) {
     select {
-        font-size: 16px; 
+        font-size: 16px; /* Предотвращает зум на iOS */
     }
 }
 
@@ -267,7 +270,7 @@ select option {
     }
 }
 
-
+/* Стили для кастомного селекта */
 .custom-select {
     position: relative;
     width: 100%;
@@ -368,7 +371,7 @@ select option {
     background: #a0aec0;
 }
 
-
+/* Стили для переключателя тем */
 .theme-switcher {
     display: flex;
     gap: 8px;
@@ -404,7 +407,7 @@ select option {
     stroke: var(--bg-white);
 }
 
-
+/* Обновленные стили для языкового селекта */
 .select-selected {
     display: flex;
     align-items: center;
@@ -424,7 +427,7 @@ select option {
     gap: 8px;
 }
 
-
+/* Обновляем стили для hover эффектов */
 .select-item:hover {
     background-color: var(--bg-light);
 }
@@ -434,7 +437,7 @@ select option {
     background: rgba(0, 255, 136, 0.1);
 }
 
-
+/* Добавляем неоновые эффекты для крипто темы */
 [data-theme="crypto"] .select-selected {
     border-color: var(--accent-green);
     box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
