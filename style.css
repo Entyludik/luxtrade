@@ -447,3 +447,17 @@ select option {
     border-color: var(--accent-green);
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
 }
+
+/* Обновляем стили для кнопки в крипто теме */
+[data-theme="crypto"] #generate-btn {
+    background-color: #000000;
+    color: var(--accent-green);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+[data-theme="crypto"] #generate-btn:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    transform: translateY(-1px);
+}
